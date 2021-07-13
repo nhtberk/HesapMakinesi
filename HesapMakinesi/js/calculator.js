@@ -1,7 +1,7 @@
-const buttons = document.querySelectorAll('button');
+const butonlar = document.querySelectorAll('button');
 const goruntu = document.querySelector('.goruntu');
 
-buttons.forEach(function(button){
+butonlar.forEach(function(button){
     button.addEventListener('click', calculate);
 });
 
@@ -11,14 +11,14 @@ function calculate(event) {
     if(clickedButtonValue === '='){
         if(goruntu.value !== ''){
             goruntu.value=eval(goruntu.value);
+        } else if (goruntu.value === ''){
+            goruntu.value= 'Hata';
         }
-    }else if(clickedButtonValue ==='AC'){
+    } else if (clickedButtonValue ==='AC'){
         goruntu.value= '';
     } else if(clickedButtonValue === '+/-'){
         goruntu.value= goruntu.value*-1; 
-    }else if(clickedButtonValue === '') {
-        
-    } else {
+    }else {
         goruntu.value += clickedButtonValue;
     }
 }
